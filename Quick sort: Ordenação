@@ -1,0 +1,149 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPCWjfHVavf4aBSiZtXuOb3",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/NathanNTC/Colab/blob/main/Quick%20sort%3A%20Ordena%C3%A7%C3%A3o\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "L82wxJTqWRp3"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "import time"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def quick_sort(arr):\n",
+        "    if len(arr) <= 1:\n",
+        "        return arr\n",
+        "    else:\n",
+        "        pivot = arr[0]#primeiro elemento a lista e torna o \"pivo\".\n",
+        "        less_than_pivot = [x for x in arr[1:] if x <= pivot]#numeros menores ou iguais ao \"pivo\" porem excluindo o mesmo.\n",
+        "        greater_than_pivot = [x for x in arr[1:] if x > pivot] #numeros que o \"pivo\".\n",
+        "        print (\"Pivo:\", pivot)\n",
+        "        print (\"esquerda:\", less_than_pivot)\n",
+        "        print (\"direita:\", greater_than_pivot)\n",
+        "        return quick_sort(less_than_pivot) + [pivot] + quick_sort(greater_than_pivot)#ordena as 2 listas criadas e as concatena com o \"pivo\", elementos menores a esquereda maiores a direita.\n",
+        ""
+      ],
+      "metadata": {
+        "id": "g4ovI2oHWSzp"
+      },
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Geração de uma lista de números aleatórios para ordenar\n",
+        "random_numbers = [10, 5, 7, 3, 2, 8, 6, 4, 9, 1]"
+      ],
+      "metadata": {
+        "id": "9DdZy0ftWS-U"
+      },
+      "execution_count": 26,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ordenação usando Quick Sort\n",
+        "#contabilização do tempo decorrido\n",
+        "start_time = time.time()\n",
+        "sorted_numbers = quick_sort(random_numbers)\n",
+        "end_time = time.time()\n",
+        "execution_time = end_time - start_time"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "E-gfJGdnWWSY",
+        "outputId": "3a328012-45e8-4ba3-9e72-834ff58fa657"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Pivo: 10\n",
+            "esquerda: [5, 7, 3, 2, 8, 6, 4, 9, 1]\n",
+            "direita: []\n",
+            "Pivo: 5\n",
+            "esquerda: [3, 2, 4, 1]\n",
+            "direita: [7, 8, 6, 9]\n",
+            "Pivo: 3\n",
+            "esquerda: [2, 1]\n",
+            "direita: [4]\n",
+            "Pivo: 2\n",
+            "esquerda: [1]\n",
+            "direita: []\n",
+            "Pivo: 7\n",
+            "esquerda: [6]\n",
+            "direita: [8, 9]\n",
+            "Pivo: 8\n",
+            "esquerda: []\n",
+            "direita: [9]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Exibição dos resultados\n",
+        "print(\"Lista original:\", random_numbers)\n",
+        "print(\"Lista ordenada:\", sorted_numbers)\n",
+        "print(\"Tempo de execução:\", execution_time, \"segundos\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vLG5zHrsWWUq",
+        "outputId": "813e87b0-1d51-4aa9-99ed-f1d168cf5b23"
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Lista original: [10, 5, 7, 3, 2, 8, 6, 4, 9, 1]\n",
+            "Lista ordenada: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n",
+            "Tempo de execução: 0.008608818054199219 segundos\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
