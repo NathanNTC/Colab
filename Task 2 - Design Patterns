@@ -4,7 +4,6 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMl5120Mvc5640lfY+RH497",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -41,7 +40,7 @@
       "metadata": {
         "id": "RpEvwbr88ayX"
       },
-      "execution_count": 43,
+      "execution_count": 1,
       "outputs": []
     },
     {
@@ -64,23 +63,13 @@
       "metadata": {
         "id": "OFw-3UPo9Ahq"
       },
-      "execution_count": 44,
+      "execution_count": 2,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "resource = Resource()"
-      ],
-      "metadata": {
-        "id": "08yf_y5ktT5Z"
-      },
-      "execution_count": 45,
-      "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
+        "resource = Resource()\n",
         "# Primeira (será criado)\n",
         "print(\"Primeira chamada para get_expensive_object():\")\n",
         "start_time = time.time()\n",
@@ -95,9 +84,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "1nl4AxNbtplA",
-        "outputId": "a8becb34-1ad6-4459-c9a2-9896eb48a2ab"
+        "outputId": "df227f8e-7286-48f3-a7ae-9bb858717b42"
       },
-      "execution_count": 46,
+      "execution_count": 3,
       "outputs": [
         {
           "output_type": "stream",
@@ -107,7 +96,7 @@
             "ExpensiveObject ainda não foi criado. Criando agora...\n",
             "Inicializando ExpensiveObject... Isso leva tempo.\n",
             "ExpensiveObject foi criado!\n",
-            "Tempo de execução da primeira chamada: 5.0062 segundos\n"
+            "Tempo de execução da primeira chamada: 5.0090 segundos\n"
           ]
         }
       ]
@@ -126,9 +115,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "rX8gR3PdtT8_",
-        "outputId": "b2a5f0c4-49a8-424d-f61a-4e5a50ae7a06"
+        "outputId": "e2d9d596-4543-4abf-eb5f-8d7e59bf571b"
       },
-      "execution_count": 47,
+      "execution_count": 4,
       "outputs": [
         {
           "output_type": "stream",
