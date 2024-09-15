@@ -1,0 +1,145 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMl5120Mvc5640lfY+RH497",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/NathanNTC/Colab/blob/main/Task%202%20-%20Design%20Patterns\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import time\n",
+        "\n",
+        "#Simular demora\n",
+        "class ExpensiveObject:\n",
+        "    def __init__(self):\n",
+        "        print(\"Inicializando ExpensiveObject... Isso leva tempo.\")\n",
+        "        time.sleep(5)  # 3 segundos para passar, simulando atraso para resposta\n",
+        "        print(\"ExpensiveObject foi criado!\")"
+      ],
+      "metadata": {
+        "id": "RpEvwbr88ayX"
+      },
+      "execution_count": 43,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Classe usando o pattern\n",
+        "class Resource:\n",
+        "    def __init__(self):\n",
+        "        self.expensive_object = None\n",
+        "\n",
+        "    # Método usando o pattern\n",
+        "    def get_expensive_object(self):\n",
+        "        if self.expensive_object is None:\n",
+        "            print(\"ExpensiveObject ainda não foi criado. Criando agora...\")\n",
+        "            self.expensive_object = ExpensiveObject()\n",
+        "        else:\n",
+        "            print(\"ExpensiveObject já foi criado. Reutilizando o existente.\")\n",
+        "        return self.expensive_object"
+      ],
+      "metadata": {
+        "id": "OFw-3UPo9Ahq"
+      },
+      "execution_count": 44,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "resource = Resource()"
+      ],
+      "metadata": {
+        "id": "08yf_y5ktT5Z"
+      },
+      "execution_count": 45,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Primeira (será criado)\n",
+        "print(\"Primeira chamada para get_expensive_object():\")\n",
+        "start_time = time.time()\n",
+        "resource.get_expensive_object()\n",
+        "end_time = time.time()\n",
+        "\n",
+        "execution_time = end_time - start_time\n",
+        "print(f\"Tempo de execução da primeira chamada: {execution_time:.4f} segundos\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1nl4AxNbtplA",
+        "outputId": "a8becb34-1ad6-4459-c9a2-9896eb48a2ab"
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Primeira chamada para get_expensive_object():\n",
+            "ExpensiveObject ainda não foi criado. Criando agora...\n",
+            "Inicializando ExpensiveObject... Isso leva tempo.\n",
+            "ExpensiveObject foi criado!\n",
+            "Tempo de execução da primeira chamada: 5.0062 segundos\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# segunda(já criado)\n",
+        "print(\"\\nSegunda chamada para get_expensive_object():\")\n",
+        "start_time = time.time()  # Início da medição de tempo\n",
+        "resource.get_expensive_object()\n",
+        "end_time = time.time()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rX8gR3PdtT8_",
+        "outputId": "b2a5f0c4-49a8-424d-f61a-4e5a50ae7a06"
+      },
+      "execution_count": 47,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Segunda chamada para get_expensive_object():\n",
+            "ExpensiveObject já foi criado. Reutilizando o existente.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
