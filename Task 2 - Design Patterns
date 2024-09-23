@@ -34,7 +34,7 @@
         "class ExpensiveObject:\n",
         "    def __init__(self):\n",
         "        print(\"Inicializando ExpensiveObject... Isso leva tempo.\")\n",
-        "        time.sleep(5)  # 3 segundos para passar, simulando atraso para resposta\n",
+        "        time.sleep(3)  # 3 segundos para passar, simulando atraso para resposta\n",
         "        print(\"ExpensiveObject foi criado!\")"
       ],
       "metadata": {
