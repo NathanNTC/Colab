@@ -41,7 +41,7 @@
       "metadata": {
         "id": "RpEvwbr88ayX"
       },
-      "execution_count": 20,
+      "execution_count": 47,
       "outputs": []
     },
     {
@@ -51,6 +51,7 @@
         "class Resource:\n",
         "    def __init__(self):\n",
         "        self.expensive_object = None\n",
+        "        print(f\"ExpensiveObject criado com valor:{self.expensive_object}\")\n",
         "\n",
         "    # Método usando o pattern\n",
         "    def get_expensive_object(self):\n",
@@ -64,7 +65,7 @@
       "metadata": {
         "id": "OFw-3UPo9Ahq"
       },
-      "execution_count": 21,
+      "execution_count": 48,
       "outputs": []
     },
     {
@@ -85,19 +86,20 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "1nl4AxNbtplA",
-        "outputId": "607a4f0b-f555-4630-8f5b-495ef242fb7c"
+        "outputId": "904b8759-4e89-45a9-9c15-655230158d92"
       },
-      "execution_count": 22,
+      "execution_count": 49,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
+            "ExpensiveObject criado com valor:None\n",
             "Primeira chamada para get_expensive_object():\n",
             "ExpensiveObject ainda não foi criado. Criando agora...\n",
             "Inicializando ExpensiveObject... Isso leva tempo.\n",
             "ExpensiveObject foi criado com valor:valor não vazio\n",
-            "Tempo de execução da primeira chamada: 3.0049 segundos\n"
+            "Tempo de execução da primeira chamada: 3.0053 segundos\n"
           ]
         }
       ]
@@ -116,9 +118,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "rX8gR3PdtT8_",
-        "outputId": "f19a57a4-e030-4470-f246-189bd73d415c"
+        "outputId": "9ad3b860-31a6-41af-f308-248a179aece8"
       },
-      "execution_count": 23,
+      "execution_count": 50,
       "outputs": [
         {
           "output_type": "stream",
