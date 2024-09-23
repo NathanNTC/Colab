@@ -35,12 +35,13 @@
         "    def __init__(self):\n",
         "        print(\"Inicializando ExpensiveObject... Isso leva tempo.\")\n",
         "        time.sleep(3)  # 3 segundos para passar, simulando atraso para resposta\n",
-        "        print(\"ExpensiveObject foi criado!\")"
+        "        self.valor=\"valor não vazio\"\n",
+        "        print(f\"ExpensiveObject foi criado com valor:{self.valor}\")"
       ],
       "metadata": {
         "id": "RpEvwbr88ayX"
       },
-      "execution_count": 1,
+      "execution_count": 20,
       "outputs": []
     },
     {
@@ -57,13 +58,13 @@
         "            print(\"ExpensiveObject ainda não foi criado. Criando agora...\")\n",
         "            self.expensive_object = ExpensiveObject()\n",
         "        else:\n",
-        "            print(\"ExpensiveObject já foi criado. Reutilizando o existente.\")\n",
+        "            print(f\"ExpensiveObject já foi criado. Reutilizando o existente com valor:{self.expensive_object.valor}\")\n",
         "        return self.expensive_object"
       ],
       "metadata": {
         "id": "OFw-3UPo9Ahq"
       },
-      "execution_count": 2,
+      "execution_count": 21,
       "outputs": []
     },
     {
@@ -84,9 +85,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "1nl4AxNbtplA",
-        "outputId": "df227f8e-7286-48f3-a7ae-9bb858717b42"
+        "outputId": "607a4f0b-f555-4630-8f5b-495ef242fb7c"
       },
-      "execution_count": 3,
+      "execution_count": 22,
       "outputs": [
         {
           "output_type": "stream",
@@ -95,8 +96,8 @@
             "Primeira chamada para get_expensive_object():\n",
             "ExpensiveObject ainda não foi criado. Criando agora...\n",
             "Inicializando ExpensiveObject... Isso leva tempo.\n",
-            "ExpensiveObject foi criado!\n",
-            "Tempo de execução da primeira chamada: 5.0090 segundos\n"
+            "ExpensiveObject foi criado com valor:valor não vazio\n",
+            "Tempo de execução da primeira chamada: 3.0049 segundos\n"
           ]
         }
       ]
@@ -115,9 +116,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "rX8gR3PdtT8_",
-        "outputId": "e2d9d596-4543-4abf-eb5f-8d7e59bf571b"
+        "outputId": "f19a57a4-e030-4470-f246-189bd73d415c"
       },
-      "execution_count": 4,
+      "execution_count": 23,
       "outputs": [
         {
           "output_type": "stream",
@@ -125,7 +126,7 @@
           "text": [
             "\n",
             "Segunda chamada para get_expensive_object():\n",
-            "ExpensiveObject já foi criado. Reutilizando o existente.\n"
+            "ExpensiveObject já foi criado. Reutilizando o existente com valor:valor não vazio\n"
           ]
         }
       ]
