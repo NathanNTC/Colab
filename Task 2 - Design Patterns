@@ -41,7 +41,7 @@
       "metadata": {
         "id": "RpEvwbr88ayX"
       },
-      "execution_count": 47,
+      "execution_count": 1,
       "outputs": []
     },
     {
@@ -65,7 +65,7 @@
       "metadata": {
         "id": "OFw-3UPo9Ahq"
       },
-      "execution_count": 48,
+      "execution_count": 5,
       "outputs": []
     },
     {
@@ -86,9 +86,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "1nl4AxNbtplA",
-        "outputId": "904b8759-4e89-45a9-9c15-655230158d92"
+        "outputId": "87b1bba0-11d3-4df0-bc37-d5fe34406050"
       },
-      "execution_count": 49,
+      "execution_count": 3,
       "outputs": [
         {
           "output_type": "stream",
@@ -99,7 +99,7 @@
             "ExpensiveObject ainda não foi criado. Criando agora...\n",
             "Inicializando ExpensiveObject... Isso leva tempo.\n",
             "ExpensiveObject foi criado com valor:valor não vazio\n",
-            "Tempo de execução da primeira chamada: 3.0053 segundos\n"
+            "Tempo de execução da primeira chamada: 3.0033 segundos\n"
           ]
         }
       ]
@@ -111,16 +111,19 @@
         "print(\"\\nSegunda chamada para get_expensive_object():\")\n",
         "start_time = time.time()  # Início da medição de tempo\n",
         "resource.get_expensive_object()\n",
-        "end_time = time.time()"
+        "end_time = time.time()\n",
+        "\n",
+        "execution_time = end_time - start_time\n",
+        "print(f\"Tempo de execução da primeira chamada: {execution_time:.4f} segundos\")"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "rX8gR3PdtT8_",
-        "outputId": "9ad3b860-31a6-41af-f308-248a179aece8"
+        "outputId": "02cf65c5-fc42-41e7-c1cc-bcf404198858"
       },
-      "execution_count": 50,
+      "execution_count": 6,
       "outputs": [
         {
           "output_type": "stream",
@@ -128,7 +131,8 @@
           "text": [
             "\n",
             "Segunda chamada para get_expensive_object():\n",
-            "ExpensiveObject já foi criado. Reutilizando o existente com valor:valor não vazio\n"
+            "ExpensiveObject já foi criado. Reutilizando o existente com valor:valor não vazio\n",
+            "Tempo de execução da primeira chamada: 0.0004 segundos\n"
           ]
         }
       ]
